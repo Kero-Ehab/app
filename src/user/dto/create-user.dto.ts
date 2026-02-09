@@ -30,17 +30,21 @@ export class CreateUserDto {
     //age   
     @IsNumber({}, {message: 'Age must be a number'})
     @Min(0, {message: 'Age must be a positive number'})
+    @IsOptional()
     age: number;
     //phoneNumber
     @IsString({message: 'Phone number must be a string'})   
     @IsPhoneNumber('EG', {message: 'Phone number must be a valid phone number'})
+    @IsOptional()
     phoneNumber: string;
     //address
-    @IsString({message: 'Address must be a string'})        
+    @IsString({message: 'Address must be a string'})
+    @IsOptional()        
     address: string;
     //active
     @IsBoolean({message: 'Active must be a boolean'})
     @IsEnum([false, true], { message: 'Active must be either true or false' })
+    @IsOptional()
     active: boolean;
     //verificationCode
     @IsString({message: 'Verification code must be a string'})  
@@ -49,6 +53,7 @@ export class CreateUserDto {
     verificationCode: string;
     //gender
     @IsEnum(['male', 'female'], { message: 'Gender must be either male or female' })
+    @IsOptional()  
     gender: string;
     
 }
